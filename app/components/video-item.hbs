@@ -12,9 +12,33 @@
     {{/if}}
   </div>
   <div class="md-secondary-container">
-    <controls.checkbox @value={{item.checked}} @onChange={{action (mut @item.checked)}} />
+    <controls.checkbox @value={{this.checked}} @onChange={{this.onChecked}} />
     <PaperButton @iconButton={{true}} @href="https://www.youtube.com/watch?v={{@item.video}}" @target="_blank">
       {{paper-icon "play-circle-filled"}}
     </PaperButton>
   </div>
 </PaperItem>
+
+{{#if this.showDialog}}
+<PaperDialog @class="flex-77" @onClose={{this.closeDialog}} @clickOutsideToClose={{true}}>
+    <PaperToolbar>
+      <PaperToolbarTools>
+        <h2>Congratulations 🎉</h2>
+        <span class="flex"></span>
+        <PaperButton @iconButton={{true}} @onClick={{this.closeDialog}}><PaperIcon @icon="close" /></PaperButton>
+      </PaperToolbarTools>
+    </PaperToolbar>
+
+    <PaperDialogContent>
+      <p>
+        You have just watched "{{@item.title}}"! Why don't you tweet about it and let people know what your favorite part of the video was 👇
+      </p>
+      <PaperButton @primary={{true}} @href="https://twitter.com/intent/tweet?text={{this.tweetText}}" @target="blank" rel="nofollow noreferrer">Tweet now 🐤</PaperButton>
+    </PaperDialogContent>
+
+    <PaperDialogActions @class="layout-row">
+      <span class="flex"></span>
+      <PaperButton @onClick={{this.closeDialog}}>Close</PaperButton>
+    </PaperDialogActions>
+  </PaperDialog>
+{{/if}}
