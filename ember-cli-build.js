@@ -1,5 +1,9 @@
 'use strict';
 
+const yaml = require('js-yaml');
+const fs = require('fs');
+const writeFile = require('broccoli-file-creator');
+
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
@@ -20,5 +24,10 @@ module.exports = function (defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  return app.toTree([
+    writeFile(
+      '/data.json',
+      JSON.stringify(yaml.load(fs.readFileSync('data.yml', 'utf8')))
+    ),
+  ]);
 };

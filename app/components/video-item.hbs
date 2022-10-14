@@ -1,0 +1,20 @@
+<PaperItem @noink={{true}} as |controls|>
+  {{#if @item.author}}
+    <img src={{this.img}} alt={{@item.author}} class="md-avatar">
+  {{/if}}
+  <div class="md-list-item-text">
+    <h3>{{@item.title}}</h3>
+    <PaperButton @onClick={{this.showDescription}} @onClick={{this.showDescription}}>Show Description</PaperButton>
+    {{#if this.showDescription}}
+      <p>
+        {{@item.description}}
+      </p>
+    {{/if}}
+  </div>
+  <div class="md-secondary-container">
+    <controls.checkbox @value={{item.checked}} @onChange={{action (mut @item.checked)}} />
+    <PaperButton @iconButton={{true}} @href="https://www.youtube.com/watch?v={{@item.video}}" @target="_blank">
+      {{paper-icon "play-circle-filled"}}
+    </PaperButton>
+  </div>
+</PaperItem>
