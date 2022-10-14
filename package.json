@@ -71,6 +71,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "canvas-confetti": "^1.5.1",
     "js-yaml": "^4.1.0"
   }
 }
