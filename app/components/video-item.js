@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 
 export default class VideoItemComponent extends Component {
   @tracked checked = JSON.parse(localStorage.getItem(this.args.item.title));
-
+  @tracked showDescription = false;
   @tracked showDialog = false;
 
   get img() {
@@ -18,6 +18,12 @@ export default class VideoItemComponent extends Component {
 <edit me>
 
 I'm tracking the videos I watch with https://emberfest-watch-list.netlify.app 💪`);
+  }
+
+  @action
+  onToggleDescription(event) {
+    event.stopPropagation();
+    this.showDescription = !this.showDescription;
   }
 
   @action

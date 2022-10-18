@@ -4,7 +4,9 @@
   {{/if}}
   <div class="md-list-item-text">
     <h3>{{@item.title}}</h3>
-    <PaperButton @onClick={{this.showDescription}} @onClick={{this.showDescription}}>Show Description</PaperButton>
+    <PaperButton @onClick={{this.onToggleDescription}}>
+      {{if this.showDescription 'Hide' 'Show'}} description
+    </PaperButton>
     {{#if this.showDescription}}
       <p>
         {{@item.description}}
