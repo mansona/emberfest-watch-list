@@ -58,6 +58,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-qunit": "^6.2.0",
     "loader.js": "^4.7.0",
+    "more-ember-confetti": "^1.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "qunit": "^2.17.2",
@@ -71,7 +72,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "canvas-confetti": "^1.5.1",
     "js-yaml": "^4.1.0"
   }
 }

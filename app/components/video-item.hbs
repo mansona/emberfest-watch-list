@@ -22,7 +22,8 @@
 </PaperItem>
 
 {{#if this.showDialog}}
-{{confetti  (array "#41f3fc" "#13b2f2" "#7f3b86")}}
+{{confetti  colors=(array "#41f3fc" "#13b2f2" "#7f3b86") angle=60 spread=50 originX=0 continuous=false}}
+{{confetti  colors=(array "#41f3fc" "#13b2f2" "#7f3b86") angle=120 spread=50 originX=1 continuous=false}}
 <PaperDialog @class="flex-77" @onClose={{this.closeDialog}} @clickOutsideToClose={{true}}>
     <PaperToolbar>
       <PaperToolbarTools>
